@@ -1,0 +1,304 @@
+---- Minecraft Crash Report ----
+// Surprise! Haha. Well, this is awkward.
+
+Time: 2024-07-22 17:26:05
+Description: Mod loading error has occurred
+
+java.lang.Exception: Mod Loading has failed
+	at net.minecraftforge.logging.CrashReportExtender.dumpModLoadingCrashReport(CrashReportExtender.java:60) ~[forge-1.20.1-47.2.17-universal.jar%23418!/:?] {re:classloading}
+	at net.minecraftforge.server.loading.ServerModLoader.load(ServerModLoader.java:37) ~[forge-1.20.1-47.2.17-universal.jar%23418!/:?] {re:classloading}
+	at net.minecraft.server.Main.main(Main.java:125) ~[server-1.20.1-20230612.114412-srg.jar%23413!/:?] {re:mixin,re:classloading,pl:mixin:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.runTarget(CommonLaunchHandler.java:111) ~[fmlloader-1.20.1-47.2.17.jar%2369!/:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonLaunchHandler.serverService(CommonLaunchHandler.java:103) ~[fmlloader-1.20.1-47.2.17.jar%2369!/:?] {}
+	at net.minecraftforge.fml.loading.targets.CommonServerLaunchHandler.lambda$makeService$0(CommonServerLaunchHandler.java:27) ~[fmlloader-1.20.1-47.2.17.jar%2369!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) ~[modlauncher-10.0.9.jar%2355!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) ~[modlauncher-10.0.9.jar%2355!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) ~[modlauncher-10.0.9.jar%2355!/:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:108) ~[modlauncher-10.0.9.jar%2355!/:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:78) ~[modlauncher-10.0.9.jar%2355!/:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) ~[modlauncher-10.0.9.jar%2355!/:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) ~[modlauncher-10.0.9.jar%2355!/:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) ~[bootstraplauncher-1.1.2.jar:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: main
+Suspected Mod: 
+	Distant Horizons (distanthorizons), Version: 2.1.2-a
+		Issue tracker URL: https://gitlab.com/jeseibel/distant-horizons/-/issues
+		at TRANSFORMER/distanthorizons@2.1.2-a/com.seibel.distanthorizons.core.config.eventHandlers.presets.AbstractPresetConfigEventHandler.<init>(AbstractPresetConfigEventHandler.java:60)
+Stacktrace:
+	at com.seibel.distanthorizons.core.config.eventHandlers.presets.AbstractPresetConfigEventHandler.<init>(AbstractPresetConfigEventHandler.java:60) ~[DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar%23316!/:?] {re:classloading}
+-- MOD distanthorizons --
+Details:
+	Caused by 0: java.lang.ExceptionInInitializerError
+		at loaderCommon.forge.com.seibel.distanthorizons.common.AbstractModInitializer.onInitializeServer(AbstractModInitializer.java:99) ~[DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar%23316!/:?] {re:classloading}
+		at com.seibel.distanthorizons.forge.ForgeMain.lambda$new$1(ForgeMain.java:80) ~[DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar%23316!/:?] {re:classloading}
+		at net.minecraftforge.eventbus.EventBus.doCastFilter(EventBus.java:260) ~[eventbus-6.0.5.jar%2352!/:?] {}
+		at net.minecraftforge.eventbus.EventBus.lambda$addListener$11(EventBus.java:252) ~[eventbus-6.0.5.jar%2352!/:?] {}
+		at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.5.jar%2352!/:?] {}
+		at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.5.jar%2352!/:?] {}
+		at net.minecraftforge.fml.javafmlmod.FMLModContainer.acceptEvent(FMLModContainer.java:114) ~[javafmllanguage-1.20.1-47.2.17.jar%23415!/:?] {}
+		at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$10(ModContainer.java:124) ~[fmlcore-1.20.1-47.2.17.jar%23414!/:?] {}
+		at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+		at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) ~[?:?] {}
+		at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?] {}
+		at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?] {}
+		at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?] {re:computing_frames}
+		at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?] {re:computing_frames}
+		at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?] {}
+
+	Mod File: /C:/Users/Piotrek/Desktop/serv2/mods/DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar
+	Failure message: Distant Horizons (distanthorizons) encountered an error during the sided_setup event phase
+		java.lang.ExceptionInInitializerError: null
+	Mod Version: 2.1.2-a
+	Mod Issue URL: https://gitlab.com/jeseibel/distant-horizons/-/issues
+	Exception message: java.lang.NullPointerException: Cannot invoke "com.seibel.distanthorizons.core.wrapperInterfaces.config.IConfigGui.addOnScreenChangeListener(java.lang.Runnable)" because "com.seibel.distanthorizons.core.config.eventHandlers.presets.AbstractPresetConfigEventHandler.configGui" is null
+Stacktrace:
+	at com.seibel.distanthorizons.core.config.eventHandlers.presets.AbstractPresetConfigEventHandler.<init>(AbstractPresetConfigEventHandler.java:60) ~[DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar%23316!/:?] {re:classloading}
+	at com.seibel.distanthorizons.core.config.eventHandlers.presets.ThreadPresetConfigEventHandler.<init>(ThreadPresetConfigEventHandler.java:138) ~[DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar%23316!/:?] {re:classloading}
+	at com.seibel.distanthorizons.core.config.eventHandlers.presets.ThreadPresetConfigEventHandler.<clinit>(ThreadPresetConfigEventHandler.java:37) ~[DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar%23316!/:?] {re:classloading}
+	at loaderCommon.forge.com.seibel.distanthorizons.common.AbstractModInitializer.onInitializeServer(AbstractModInitializer.java:99) ~[DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar%23316!/:?] {re:classloading}
+	at com.seibel.distanthorizons.forge.ForgeMain.lambda$new$1(ForgeMain.java:80) ~[DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar%23316!/:?] {re:classloading}
+	at net.minecraftforge.eventbus.EventBus.doCastFilter(EventBus.java:260) ~[eventbus-6.0.5.jar%2352!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.lambda$addListener$11(EventBus.java:252) ~[eventbus-6.0.5.jar%2352!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.5.jar%2352!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.5.jar%2352!/:?] {}
+	at net.minecraftforge.fml.javafmlmod.FMLModContainer.acceptEvent(FMLModContainer.java:114) ~[javafmllanguage-1.20.1-47.2.17.jar%23415!/:?] {}
+	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$10(ModContainer.java:124) ~[fmlcore-1.20.1-47.2.17.jar%23414!/:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?] {re:computing_frames}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?] {re:computing_frames}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.2, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode, sharing), Oracle Corporation
+	Memory: 1204991264 bytes (1149 MiB) / 2967470080 bytes (2830 MiB) up to 4278190080 bytes (4080 MiB)
+	CPUs: 16
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i9-9900KF CPU @ 3.60GHz
+	Identifier: Intel64 Family 6 Model 158 Stepping 13
+	Microarchitecture: Coffee Lake
+	Frequency (GHz): 3.60
+	Number of physical packages: 1
+	Number of physical CPUs: 8
+	Number of logical CPUs: 16
+	Graphics card #0 name: NVIDIA GeForce GTX 1060 6GB
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x1c03
+	Graphics card #0 versionInfo: DriverVersion=31.0.15.4617
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 2.67
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 2.67
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 29118.04
+	Virtual memory used (MB): 16487.25
+	Swap memory total (MB): 12800.00
+	Swap memory used (MB): 638.46
+	JVM Flags: 0 total; 
+	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
+	ModLauncher launch target: forgeserver
+	ModLauncher naming: srg
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.17.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.17.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.17.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.17.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.17.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.9.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.9.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		kotlinforforge@4.11.0
+		javafml@null
+		lowcodefml@null
+	Mod List: 
+		flansmod-1.20.1-0.2.147.jar                       |Flan's Mod                    |flansmod                      |0.0NONE             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		weaponmaster_ydm-forge-1.20.1-4.2.3.jar           |YDM's Weapon Master           |weaponmaster_ydm              |4.2.3               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		easy_npc_1.20.1-4.5.1.jar                         |Easy NPC                      |easy_npc                      |4.5.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		kuma-api-forge-20.1.8+1.20.1.jar                  |KumaAPI                       |kuma_api                      |20.1.8              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		supermartijn642configlib-1.1.8-forge-mc1.20.jar   |SuperMartijn642's Config Libra|supermartijn642configlib      |1.1.8               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		geckolib-forge-1.20.1-4.4.7.jar                   |GeckoLib 4                    |geckolib                      |4.4.7               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		createdeco-2.0.2-1.20.1-forge.jar                 |Create Deco                   |createdeco                    |2.0.2-1.20.1-forge  |ENQUEUE_IM|Manifest: NOSIGNATURE
+		scena-forge-1.0.103.jar                           |Scena                         |scena                         |1.0.103             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		player-animation-lib-forge-1.0.2-rc1+1.20.jar     |Player Animator               |playeranimator                |1.0.2-rc1+1.20      |ENQUEUE_IM|Manifest: NOSIGNATURE
+		world_preview-forge-1.20.1-1.3.0.jar              |World Preview                 |world_preview                 |1.3.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		towntalk-1.20.1-1.1.0.jar                         |TownTalk                      |towntalk                      |1.1.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		dynamiccrosshair-7.4.4+1.20-forge.jar             |Dynamic Crosshair             |dynamiccrosshair              |7.4.4+1.20          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		naturalist-forge-4.0.3-1.20.1.jar                 |Naturalist                    |naturalist                    |4.0.3               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		connectivity-1.20.1-5.6.jar                       |Connectivity Mod              |connectivity                  |1.20.1-5.6          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		mcw-windows-2.2.1-mc1.20.1forge.jar               |Macaw's Windows               |mcwwindows                    |2.2.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		sophisticatedcore-1.20.1-0.6.22.611.jar           |Sophisticated Core            |sophisticatedcore             |0.6.22.611          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		music_player-forge-1.20.1-2.7.0.267.jar           |Music Player                  |musicplayer                   |2.7.0.267           |ENQUEUE_IM|Manifest: f4:a6:0b:ee:cb:8a:1a:ea:9f:9d:45:91:8f:8b:b3:ae:26:f3:bf:05:86:1d:90:9e:f6:32:2a:1a:ed:1d:ce:b0
+		create_recycle_1.0.2_forge_1.20.1.jar             |Create Recycling              |create_crush_everything       |1.0.2               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		ForgeEndertech-1.20.1-11.1.4.0-build.0572.jar     |ForgeEndertech                |forgeendertech                |11.1.4.0            |ENQUEUE_IM|Manifest: NOSIGNATURE
+		villagernames-1.20.1-8.0.jar                      |Villager Names                |villagernames                 |8.0                 |ENQUEUE_IM|Manifest: NOSIGNATURE
+		EnhancedVisuals_FORGE_v1.8.1_mc1.20.1.jar         |EnhancedVisuals               |enhancedvisuals               |1.8.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Placebo-1.20.1-8.6.2.jar                          |Placebo                       |placebo                       |8.6.2               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		citadel-2.5.4-1.20.1.jar                          |Citadel                       |citadel                       |2.5.4               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		alexsmobs-1.22.8.jar                              |Alex's Mobs                   |alexsmobs                     |1.22.8              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		mixinextras-forge-0.2.0-beta.8.jar                |MixinExtras                   |mixinextras                   |0.2.0-beta.8        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		weather2-1.20.1-2.8.3.jar                         |Weather2                      |weather2                      |1.20.1-2.8.3        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Kambrik-6.1.1+1.20.1-forge.jar                    |Kambrik                       |kambrik                       |6.1.1+1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		u_team_core-forge-1.20.1-5.1.4.312.jar            |U Team Core                   |uteamcore                     |5.1.4.312           |ENQUEUE_IM|Manifest: f4:a6:0b:ee:cb:8a:1a:ea:9f:9d:45:91:8f:8b:b3:ae:26:f3:bf:05:86:1d:90:9e:f6:32:2a:1a:ed:1d:ce:b0
+		createdieselgenerators-1.20.1-1.2i.jar            |Create Diesel Generators      |createdieselgenerators        |1.20.1-1.2i         |ENQUEUE_IM|Manifest: NOSIGNATURE
+		balm-forge-1.20.1-7.3.6-all.jar                   |Balm                          |balm                          |7.3.6               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		carryon-forge-1.20.1-2.1.2.7.jar                  |Carry On                      |carryon                       |2.1.2.7             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		melody_forge_1.0.3_MC_1.20.1-1.20.4.jar           |Melody                        |melody                        |1.0.2               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		JustEnoughResources-1.20.1-1.4.0.247.jar          |Just Enough Resources         |jeresources                   |1.4.0.247           |ENQUEUE_IM|Manifest: NOSIGNATURE
+		cameraoverhaul-1.1-1.20.4.jar                     |Camera Overhaul               |cameraoverhaul                |1.0.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		cloth-config-11.1.118-forge.jar                   |Cloth Config v10 API          |cloth_config                  |11.1.118            |ENQUEUE_IM|Manifest: NOSIGNATURE
+		dummmmmmy-1.20-1.8.17b.jar                        |MmmMmmMmmmmm                  |dummmmmmy                     |1.20-1.8.17b        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		swem-1.20.1-1.4.0.jar                             |Star Worm Equestrian Mod      |swem                          |1.4.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		konkrete_forge_1.8.0_MC_1.20-1.20.1.jar           |Konkrete                      |konkrete                      |1.8.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		embeddium-0.3.25+mc1.20.1.jar                     |Embeddium                     |embeddium                     |0.3.25+mc1.20.1     |ENQUEUE_IM|Manifest: NOSIGNATURE
+		athena-forge-1.20.1-3.1.2.jar                     |Athena                        |athena                        |3.1.2               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		solapplepie-1.20.1-2.3.0.jar                      |Spice of Life: Apple Pie Editi|solapplepie                   |1.20.1-2.3.0        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		corpse-forge-1.20.1-1.0.12.jar                    |Corpse                        |corpse                        |1.20.1-1.0.12       |ENQUEUE_IM|Manifest: NOSIGNATURE
+		create_connected-0.8.2-mc1.20.1-all.jar           |Create: Connected             |create_connected              |0.8.2-mc1.20.1      |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Chipped-forge-1.20.1-3.0.6.jar                    |Chipped                       |chipped                       |3.0.6               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		FarmersDelight-1.20.1-1.2.4.jar                   |Farmer's Delight              |farmersdelight                |1.20.1-1.2.4        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		handcrafted-forge-1.20.1-3.0.6.jar                |Handcrafted                   |handcrafted                   |3.0.6               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		DustrialDecor-1.3.5-1.20.jar                      |'Dustrial Decor               |dustrial_decor                |1.3.2               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		AmbientSounds_FORGE_v6.0.3_mc1.20.1.jar           |AmbientSounds                 |ambientsounds                 |6.0.3               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		create_ultimate_factory-1.5.1-forge-1.20.1.jar    |Create: Ultimate Factory      |create_ultimate_factory       |1.5.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		supermartijn642corelib-1.1.17-forge-mc1.20.1.jar  |SuperMartijn642's Core Lib    |supermartijn642corelib        |1.1.17              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Highlighter-1.20.1-forge-1.1.9.jar                |Highlighter                   |highlighter                   |1.1.9               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Bountiful-6.0.3+1.20.1-forge.jar                  |Bountiful                     |bountiful                     |6.0.3+1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		chisel_chipped_integration-v1.1.0-1.20.1_beta.jar |Chisel Chipped Integration    |chisel_chipped_integration    |1.1.0-1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		curios-forge-5.9.1+1.20.1.jar                     |Curios API                    |curios                        |5.9.1+1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		blockui-1.20.1-1.0.156-RELEASE.jar                |UI Library Mod                |blockui                       |1.20.1-1.0.156-RELEA|ENQUEUE_IM|Manifest: NOSIGNATURE
+		collective-1.20.1-7.71.jar                        |Collective                    |collective                    |7.71                |ENQUEUE_IM|Manifest: NOSIGNATURE
+		simplehats-forge-1.20.1-0.3.0.jar                 |SimpleHats                    |simplehats                    |1.20.1-0.3.0        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Butchersdelight Foods beta 1.20.1 1.0.3.jar       |ButchersDelightfoods          |butchersdelightfoods          |1.20.11.0.3         |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Chunk-Pregenerator-1.20-4.4.3.jar                 |Chunk Pregenerator            |chunkpregen                   |1.20-4.4.3          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		resourcefullib-forge-1.20.1-2.1.25.jar            |Resourceful Lib               |resourcefullib                |2.1.25              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		constructionwand-1.20.1-2.11.jar                  |Construction Wand             |constructionwand              |1.20.1-2.11         |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Butchersdelight beta 1.20.1 2.1.0.jar             |ButchersDelight               |butchersdelight               |1.20.12.1.0         |ENQUEUE_IM|Manifest: NOSIGNATURE
+		mcw-roofs-2.3.0-mc1.20.1forge.jar                 |Macaw's Roofs                 |mcwroofs                      |2.3.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		architectury-9.2.14-forge.jar                     |Architectury                  |architectury                  |9.2.14              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		findme-3.2.1-forge.jar                            |FindMe                        |findme                        |3.2.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		letsdo-API-forge-1.2.15-forge.jar                 |[Let's Do] API                |doapi                         |1.2.15              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		letsdo-vinery-forge-1.4.26.jar                    |[Let's Do] Vinery             |vinery                        |1.4.26              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		letsdo-brewery-forge-1.1.9.jar                    |[Let's Do] Brewery            |brewery                       |1.1.9               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		cupboard-1.20.1-2.7.jar                           |Cupboard utilities            |cupboard                      |1.20.1-2.7          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Chimes-v2.0.1-1.20.1.jar                          |Chimes                        |chimes                        |2.0.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		ItemPhysic_FORGE_v1.7.1_mc1.20.1.jar              |ItemPhysic                    |itemphysic                    |1.7.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		AdChimneys-1.20.1-10.1.12.0-build.0696.jar        |Advanced Chimneys             |adchimneys                    |10.1.12.0           |ENQUEUE_IM|Manifest: NOSIGNATURE
+		JadeAddons-1.20.1-forge-5.2.2.jar                 |Jade Addons                   |jadeaddons                    |5.2.2               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		quark_delight_1.0.0_forge_1.20.1.jar              |Quark Delight                 |quarkdelight                  |1.0.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		DynamicTrees-1.20.1-1.3.0-BETA11.jar              |Dynamic Trees                 |dynamictrees                  |1.20.1-1.3.0-BETA11 |ENQUEUE_IM|Manifest: NOSIGNATURE
+		DynamicTreesPlus-1.20.1-1.2.0-BETA3.jar           |Dynamic Trees Plus            |dynamictreesplus              |1.20.1-1.2.0-BETA3  |ENQUEUE_IM|Manifest: NOSIGNATURE
+		SimpleDiscordRichPresence-forge-4.0.3-build.40+mc1|Simple Discord Rich Presence  |sdrp                          |4.0.3-build.40+mc1.2|ENQUEUE_IM|Manifest: NOSIGNATURE
+		sliceanddice-forge-3.2.1.jar                      |Create Slice & Dice           |sliceanddice                  |3.2.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		rhino-forge-2001.2.2-build.18.jar                 |Rhino                         |rhino                         |2001.2.2-build.18   |ENQUEUE_IM|Manifest: NOSIGNATURE
+		rechiseled-1.1.6-forge-mc1.20.jar                 |Rechiseled                    |rechiseled                    |1.1.6               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		rechiseled_chipped-1.1.jar                        |Rechiseled: Chipped           |rechiseled_chipped            |1.1                 |ENQUEUE_IM|Manifest: NOSIGNATURE
+		amendments-1.20-1.2.8.jar                         |Amendments                    |amendments                    |1.20-1.2.8          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		sophisticatedstorage-1.20.1-0.10.25.804.jar       |Sophisticated Storage         |sophisticatedstorage          |0.10.25.804         |ENQUEUE_IM|Manifest: NOSIGNATURE
+		copycats-2.0.2+mc.1.20.1-forge.jar                |Create: Copycats+             |copycats                      |2.0.2+mc.1.20.1-forg|ENQUEUE_IM|Manifest: NOSIGNATURE
+		create_netherless-1.20.1-1.3.jar                  |Create: Netherless            |create_netherless             |1.3.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		autohud-6.3.6+1.20.1-forge.jar                    |Auto HUD                      |autohud                       |6.3.6+1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		map_atlases-1.20-6.0.7.jar                        |Map Atlases                   |map_atlases                   |1.20-6.0.7          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		createloveandwar-0.1-1.20.1.jar                   |Create: Love and War          |createloveandwar              |0.1-1.20.1          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		realmrpg_fallen_adventurers_1.0.3_forge_1.20.1.jar|Realm RPG: Fallen Adventurers |realmrpg_skeletons            |1.0.3               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		wardrobe-1.0.3.1-forge-1.20.1.jar                 |Wardrobe                      |wardrobe                      |1.0.3.1             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Clumps-forge-1.20.1-12.0.0.4.jar                  |Clumps                        |clumps                        |12.0.0.4            |ENQUEUE_IM|Manifest: NOSIGNATURE
+		comforts-forge-6.4.0+1.20.1.jar                   |Comforts                      |comforts                      |6.4.0+1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Tumbleweed-forge-1.20.1-0.5.5.jar                 |Tumbleweed                    |tumbleweed                    |0.5.5               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		decorative_blocks-forge-1.20.1-4.1.3.jar          |Decorative Blocks             |decorative_blocks             |4.1.3               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		design_decor-0.4-1.20.1.jar                       |Create: Design n' Decor       |design_decor                  |0.4.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		rechiseledcreate-1.0.2-forge-mc1.20.jar           |Rechiseled: Create            |rechiseledcreate              |1.0.2               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		terr.jar                                          |Terralith                     |terralith                     |2.5.4               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		DynamicTreesTerralith-1.20.1-1.2.1.jar            |Dynamic Trees for Terralith   |dtterralith                   |1.20.1-1.2.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		fusion-1.1.1-forge-mc1.20.1.jar                   |Fusion                        |fusion                        |1.1.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		skinlayers3d-forge-1.6.6-mc1.20.1.jar             |3d-Skin-Layers                |skinlayers3d                  |1.6.6               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		forge-1.20.1-47.2.17-universal.jar                |Forge                         |forge                         |47.2.17             |ENQUEUE_IM|Manifest: 84:ce:76:e8:45:35:e4:0e:63:86:df:47:59:80:0f:67:6c:c1:5f:6e:5f:4d:b3:54:47:1a:9f:7f:ed:5e:f2:90
+		chalk-1.20.1-1.6.4.jar                            |Chalk                         |chalk                         |1.6.4               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		tfmg-0.9.0d-1.20.1.jar                            |Create: The Factory Must Grow |tfmg                          |0.9.0d              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		drippyloadingscreen_forge_3.0.1_MC_1.20.1.jar     |Drippy Loading Screen         |drippyloadingscreen           |3.0.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		craftingtweaks-forge-1.20.1-18.2.4.jar            |CraftingTweaks                |craftingtweaks                |18.2.4              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		server-1.20.1-20230612.114412-srg.jar             |Minecraft                     |minecraft                     |1.20.1              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		DistantHorizons-2.1.2-a-1.20.1-forge-fabric.jar   |Distant Horizons              |distanthorizons               |2.1.2-a             |ERROR     |Manifest: NOSIGNATURE
+		smoothchunk-1.20.1-3.6.jar                        |Smoothchunk mod               |smoothchunk                   |1.20.1-3.6          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		voicechat-forge-1.20.1-2.5.19.jar                 |Simple Voice Chat             |voicechat                     |1.20.1-2.5.19       |ENQUEUE_IM|Manifest: NOSIGNATURE
+		sound-physics-remastered-forge-1.20.1-1.4.5.jar   |Sound Physics Remastered      |sound_physics_remastered      |1.20.1-1.4.5        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Steam_Rails-1.6.4+forge-mc1.20.1.jar              |Create: Steam 'n' Rails       |railways                      |1.6.4+forge-mc1.20.1|ENQUEUE_IM|Manifest: NOSIGNATURE
+		TerraBlender-forge-1.20.1-3.0.1.7.jar             |TerraBlender                  |terrablender                  |3.0.1.7             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		radiantgear-forge-2.1.5+1.20.1.jar                |Radiant Gear                  |radiantgear                   |2.1.5+1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		moonlight-1.20-2.12.6-forge.jar                   |Moonlight Library             |moonlight                     |1.20-2.12.6         |ENQUEUE_IM|Manifest: NOSIGNATURE
+		MouseTweaks-forge-mc1.20.1-2.25.1.jar             |Mouse Tweaks                  |mousetweaks                   |2.25.1              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		bettercombat-forge-1.8.5+1.20.1.jar               |Better Combat                 |bettercombat                  |1.8.5+1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		mysterious_mountain_lib-1.4.7-1.20.1.jar          |Mysterious Mountain Lib       |mysterious_mountain_lib       |1.4.7-1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		corn_delight-1.0.4-1.20.1.jar                     |Corn Delight                  |corn_delight                  |1.0.4-1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		mixinsquared-forge-0.1.1.jar                      |MixinSquared                  |mixinsquared                  |0.1.1               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Jade-1.20.1-forge-11.9.2.jar                      |Jade                          |jade                          |11.9.2+forge        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		ambiance-1.0.jar                                  |ambiance                      |ambiance                      |1.0.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		CreativeCore_FORGE_v2.11.32_mc1.20.1.jar          |CreativeCore                  |creativecore                  |2.11.32             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		spectrelib-forge-0.13.15+1.20.1.jar               |SpectreLib                    |spectrelib                    |0.13.15+1.20.1      |ENQUEUE_IM|Manifest: NOSIGNATURE
+		domum_ornamentum-1.20.1-1.0.186-RELEASE-universal.|Domum Ornamentum              |domum_ornamentum              |1.20.1-1.0.186-RELEA|ENQUEUE_IM|Manifest: NOSIGNATURE
+		astikorcarts-redux-1.20.1-1.1.7.jar               |AstikorCarts Redux            |astikorcarts                  |1.1.7               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		kffmod-4.11.0.jar                                 |Kotlin For Forge              |kotlinforforge                |4.11.0              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Iceberg-1.20.1-forge-1.1.21.jar                   |Iceberg                       |iceberg                       |1.1.21              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		flywheel-forge-1.20.1-0.6.10-7.jar                |Flywheel                      |flywheel                      |0.6.10-7            |ENQUEUE_IM|Manifest: NOSIGNATURE
+		effortlessbuilding-1.20.1-3.7-all.jar             |Effortless Building           |effortlessbuilding            |3.7                 |ENQUEUE_IM|Manifest: NOSIGNATURE
+		create-1.20.1-0.5.1.f.jar                         |Create                        |create                        |0.5.1.f             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		CreateCasing-1.20.1-1.6.1.jar                     |Create : Encased              |createcasing                  |1.20.1-1.6.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		destroy-1.20.1-0.8.jar                            |Destroy                       |destroy                       |0.8                 |ENQUEUE_IM|Manifest: NOSIGNATURE
+		createoreexcavation-1.20-1.5.0.jar                |Create Ore Excavation         |createoreexcavation           |1.5.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		FastWorkbench-1.20.1-8.0.4.jar                    |Fast Workbench                |fastbench                     |8.0.4               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		polymorph-forge-0.49.5+1.20.1.jar                 |Polymorph                     |polymorph                     |0.49.5+1.20.1       |ENQUEUE_IM|Manifest: NOSIGNATURE
+		storagedrawers-1.20.1-12.0.3.jar                  |Storage Drawers               |storagedrawers                |12.0.3              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		almostunified-forge-1.20.1-0.9.4.jar              |AlmostUnified                 |almostunified                 |1.20.1-0.9.4        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		jei-1.20.1-forge-15.3.0.5.jar                     |Just Enough Items             |jei                           |15.3.0.5            |ENQUEUE_IM|Manifest: NOSIGNATURE
+		kubejs-forge-2001.6.5-build.14.jar                |KubeJS                        |kubejs                        |2001.6.5-build.14   |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Zeta-1.0-19.jar                                   |Zeta                          |zeta                          |1.0-19              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		Quark-4.0-458.jar                                 |Quark                         |quark                         |4.0-458             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		supplementaries-1.20-2.8.17.jar                   |Supplementaries               |supplementaries               |1.20-2.8.17         |ENQUEUE_IM|Manifest: NOSIGNATURE
+		DynamicTreesQuark-1.20.1-2.5.3.jar                |Dynamic Trees for Quark       |dtquark                       |1.20.1-2.5.3        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		crittersandcompanions-1.20.1-2.1.6.jar            |Critters and Companions       |crittersandcompanions         |1.20.1-2.1.6        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		betterchunkloading-1.20.1-4.3.jar                 |betterchunkloading mod        |betterchunkloading            |1.20.1-4.3          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		miners_delight-1.20.1-1.2.3.jar                   |Miner's Delight               |miners_delight                |1.20.1-1.2.3        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		createaddoncompatibility-v0.2.1a-1.20.1-(neo)forge|Create: Addon Compatibility   |createaddoncompatibility      |0.2.1a              |ENQUEUE_IM|Manifest: NOSIGNATURE
+		wild_west_structures_forge-1.2.0-forge-1.20.1.jar |wild west structures forge    |wild_west_structures_forge    |1.0.0               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		structurize-1.20.1-1.0.742-RELEASE.jar            |Structurize                   |structurize                   |1.20.1-1.0.742-RELEA|ENQUEUE_IM|Manifest: NOSIGNATURE
+		multipiston-1.20-1.2.43-RELEASE.jar               |Multi-Piston                  |multipiston                   |1.20-1.2.43-RELEASE |ENQUEUE_IM|Manifest: NOSIGNATURE
+		AmbientEnvironment-forge-1.20.1-11.0.0.1.jar      |Ambient Environment           |ambientenvironment            |11.0.0.1            |ENQUEUE_IM|Manifest: NOSIGNATURE
+		fancymenu_forge_3.2.3_MC_1.20.1.jar               |FancyMenu                     |fancymenu                     |3.2.3               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		coroutil-forge-1.20.1-1.3.7.jar                   |CoroUtil                      |coroutil                      |1.20.1-1.3.7        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		minecolonies-1.20.1-1.1.603-RELEASE.jar           |MineColonies                  |minecolonies                  |1.20.1-1.1.603-RELEA|ENQUEUE_IM|Manifest: NOSIGNATURE
+		alexsdelight-1.5.jar                              |Alex's Delight                |alexsdelight                  |1.5                 |ENQUEUE_IM|Manifest: NOSIGNATURE
+		moremobvariants-forge+1.20.1-1.3.0.1.jar          |More Mob Variants             |moremobvariants               |1.3.0.1             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		visuality-forge-2.0.2.jar                         |Visuality: Reforged           |visuality                     |2.0.2               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		yaclx-1.12+1.20.2-forge.jar                       |YetAnotherConfigLibExtensions |yaclx                         |1.10                |ENQUEUE_IM|Manifest: NOSIGNATURE
+		immersive_melodies-0.3.0+1.20.1-forge.jar         |Immersive Melodies            |immersive_melodies            |0.3.0+1.20.1        |ENQUEUE_IM|Manifest: NOSIGNATURE
+		cosmeticarmorreworked-1.20.1-v1a.jar              |CosmeticArmorReworked         |cosmeticarmorreworked         |1.20.1-v1a          |ENQUEUE_IM|Manifest: 5e:ed:25:99:e4:44:14:c0:dd:89:c1:a9:4c:10:b5:0d:e4:b1:52:50:45:82:13:d8:d0:32:89:67:56:57:01:53
+		chunksending-1.20.1-2.8.jar                       |chunksending mod              |chunksending                  |1.20.1-2.8          |ENQUEUE_IM|Manifest: NOSIGNATURE
+		chisels-and-bits-forge-1.4.148.jar                |chisels-and-bits              |chiselsandbits                |1.4.148             |ENQUEUE_IM|Manifest: NOSIGNATURE
+		betterfoliage-5.0.2.jar                           |Better Foliage                |betterfoliage                 |5.0.2               |ENQUEUE_IM|Manifest: NOSIGNATURE
+		PresenceFootsteps-1.20.1-1.9.1-beta.1.jar         |Presence Footsteps (Forge)    |presencefootsteps             |1.20.1-1.9.1-beta.1 |ENQUEUE_IM|Manifest: NOSIGNATURE
+	Crash Report UUID: 9e3709bc-6f45-4234-8c6e-be10cb06d649
+	FML: 47.2
+	Forge: net.minecraftforge:47.2.17
